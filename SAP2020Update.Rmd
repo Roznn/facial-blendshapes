@@ -27,7 +27,8 @@ This Rmd file provides the code used for several results presented as part of th
 
 ```{r message=FALSE, warning=FALSE,echo=FALSE}
 require(xlsx)
-#Sys.setenv(JAVA_HOME='C:\\Program Files (x86)\\Java\\jre1.8.0_251') 
+ # Sys.getenv()
+#Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_251') 
 
 mydata =read.xlsx("combined_resultsUpdate.xlsx", sheetName = "combined")
 
@@ -109,6 +110,7 @@ kable(AIC(m1,m2))
 
 
 ## Image Error Metrics
+
 
 
 
@@ -279,3 +281,136 @@ ggplot(mydata,aes(SSIM, Difference, group=interaction(AU_Name), col=interaction(
 
 
 ```
+
+
+
+# New results: STED
+
+
+## ANOVA
+
+STED  explains more than SSIM:
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+
+kable(anova(lm(Difference~STED * AU_Name*Race*Sex,data=mydata)))
+
+```
+
+
+
+## Model selection with AIC
+
+With Gaussian distribution and identity link: 
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+
+m1 <- glm(Difference~STED*AU_Name,data=mydata,family=gaussian(link="identity"))
+m2 <- glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
+m3 <- (glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="identity")))
+m4 <- (glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity")))
+ m5 <-glm(Difference~STED*AU_Name+Race,data=mydata,family=poisson(link="identity"))
+ m6 <- glm(Difference~STED*AU_Name+Race*Sex,data=mydata,family=poisson(link="sqrt"))
+kable(AIC(m1,m2,m3,m4,m5,m6))
+
+```
+
+##  AIC comparison RMS, Hausdorff and STED
+
+
+
+- choosing the best between link functions: identity, log, sqrt
+- choosing between distributions: gaussian, poisson
+
+### using all variables 
+
+
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mHausdorff<- glm(Difference~Hausdorff*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
+mRMS <- glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
+mSTED <- glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=poisson(link="sqrt"))
+kable(AIC(mHausdorff,mRMS, mSTED ))
+
+```
+
+### AU_Name + Sex and Race variables 
+
+
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mHausdorff<- glm(Difference~Hausdorff*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
+mRMS <- glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
+mSTED <- glm(Difference~STED*AU_Name+Race:Sex,data=mydata,family=poisson(link="sqrt"))
+kable(AIC(mHausdorff,mRMS, mSTED ))
+
+```
+### AU_Name without Sex and Race variables
+
+ 
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mHausdorff<- glm(Difference~Hausdorff*AU_Name,data=mydata,family=poisson(link="identity"))
+mRMS <- glm(Difference~RMS*AU_Name,data=mydata,family=poisson(link="identity"))
+mSTED <- glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="sqrt"))
+kable(AIC(mHausdorff,mRMS, mSTED ))
+
+```
+
+
+
+
+
+## Fitting 
+
+
+### Similar to Fig 8(a): STED*AU+Race:Sex  (best AIC)
+
+
+
+```{r message=FALSE, warning=FALSE,echo=FALSE}
+require(ggplot2)
+
+
+m<-glm(Difference~STED*relevel(factor(AU_Name),ref='Neutral')+Race:Sex,data=mydata,family=poisson(link="sqrt"))
+
+ggplot(mydata,aes(STED, Difference, group=interaction(AU_Name,Race,Sex), col=interaction(AU_Name),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   #  geom_point(alpha = 0.8,show.legend=TRUE) +
+   ylab("Perceptual Difference") + 
+   xlab("STED") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
+
+
+```
+
+
+
+### similar to Fig 8(b):  STED*AU
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+
+m<- glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="sqrt"))
+ggplot(mydata,aes(STED, Difference, group=interaction(AU_Name), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   #  geom_point(alpha = 0.8,show.legend=TRUE) +
+   ylab("Perceptual Difference") + 
+   xlab("STED") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
+
+
+
+```
+
+
+
