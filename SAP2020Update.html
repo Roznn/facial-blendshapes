@@ -826,6 +826,292 @@ kable(AIC(m1,m2))</code></pre>
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>kable(anova(lm(Difference~Hausdorff * AU_Name*Race*Sex,data=mydata)))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Hausdorff</td>
+<td align="right">1</td>
+<td align="right">11259.925227</td>
+<td align="right">1.125993e+04</td>
+<td align="right">6173.7852528</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">AU_Name</td>
+<td align="right">11</td>
+<td align="right">5423.308687</td>
+<td align="right">4.930281e+02</td>
+<td align="right">270.3258965</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="right">2</td>
+<td align="right">23.329038</td>
+<td align="right">1.166452e+01</td>
+<td align="right">6.3956228</td>
+<td align="right">0.0016785</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="right">1</td>
+<td align="right">1.778814</td>
+<td align="right">1.778814e+00</td>
+<td align="right">0.9753189</td>
+<td align="right">0.3233911</td>
+</tr>
+<tr class="odd">
+<td align="left">Hausdorff:AU_Name</td>
+<td align="right">10</td>
+<td align="right">1368.427017</td>
+<td align="right">1.368427e+02</td>
+<td align="right">75.0304675</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Hausdorff:Race</td>
+<td align="right">2</td>
+<td align="right">21.834219</td>
+<td align="right">1.091711e+01</td>
+<td align="right">5.9858205</td>
+<td align="right">0.0025269</td>
+</tr>
+<tr class="odd">
+<td align="left">AU_Name:Race</td>
+<td align="right">22</td>
+<td align="right">173.322222</td>
+<td align="right">7.878283e+00</td>
+<td align="right">4.3196403</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Hausdorff:Sex</td>
+<td align="right">1</td>
+<td align="right">7.319480</td>
+<td align="right">7.319480e+00</td>
+<td align="right">4.0132504</td>
+<td align="right">0.0451822</td>
+</tr>
+<tr class="odd">
+<td align="left">AU_Name:Sex</td>
+<td align="right">11</td>
+<td align="right">29.731203</td>
+<td align="right">2.702837e+00</td>
+<td align="right">1.4819577</td>
+<td align="right">0.1305930</td>
+</tr>
+<tr class="even">
+<td align="left">Race:Sex</td>
+<td align="right">2</td>
+<td align="right">79.510068</td>
+<td align="right">3.975503e+01</td>
+<td align="right">21.7975729</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Hausdorff:AU_Name:Race</td>
+<td align="right">20</td>
+<td align="right">86.270164</td>
+<td align="right">4.313508e+00</td>
+<td align="right">2.3650844</td>
+<td align="right">0.0005495</td>
+</tr>
+<tr class="even">
+<td align="left">Hausdorff:AU_Name:Sex</td>
+<td align="right">10</td>
+<td align="right">9.601155</td>
+<td align="right">9.601155e-01</td>
+<td align="right">0.5264286</td>
+<td align="right">0.8727654</td>
+</tr>
+<tr class="odd">
+<td align="left">Hausdorff:Race:Sex</td>
+<td align="right">2</td>
+<td align="right">13.663074</td>
+<td align="right">6.831537e+00</td>
+<td align="right">3.7457124</td>
+<td align="right">0.0236657</td>
+</tr>
+<tr class="even">
+<td align="left">AU_Name:Race:Sex</td>
+<td align="right">22</td>
+<td align="right">167.718331</td>
+<td align="right">7.623560e+00</td>
+<td align="right">4.1799767</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Hausdorff:AU_Name:Race:Sex</td>
+<td align="right">20</td>
+<td align="right">58.757522</td>
+<td align="right">2.937876e+00</td>
+<td align="right">1.6108292</td>
+<td align="right">0.0413741</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">7062</td>
+<td align="right">12879.876559</td>
+<td align="right">1.823829e+00</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>kable(anova(lm(Difference~Tri.Diffs * AU_Name*Race*Sex,data=mydata)))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Tri.Diffs</td>
+<td align="right">1</td>
+<td align="right">8.955350e+03</td>
+<td align="right">8955.3504505</td>
+<td align="right">4963.9496299</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">AU_Name</td>
+<td align="right">11</td>
+<td align="right">8.013462e+03</td>
+<td align="right">728.4965641</td>
+<td align="right">403.8055540</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="right">2</td>
+<td align="right">1.498244e+01</td>
+<td align="right">7.4912177</td>
+<td align="right">4.1523811</td>
+<td align="right">0.0157653</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="right">1</td>
+<td align="right">6.326624e+00</td>
+<td align="right">6.3266244</td>
+<td align="right">3.5068471</td>
+<td align="right">0.0611569</td>
+</tr>
+<tr class="odd">
+<td align="left">Tri.Diffs:AU_Name</td>
+<td align="right">10</td>
+<td align="right">1.393252e+03</td>
+<td align="right">139.3252074</td>
+<td align="right">77.2279450</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Tri.Diffs:Race</td>
+<td align="right">2</td>
+<td align="right">9.929357e+00</td>
+<td align="right">4.9646787</td>
+<td align="right">2.7519208</td>
+<td align="right">0.0638736</td>
+</tr>
+<tr class="odd">
+<td align="left">AU_Name:Race</td>
+<td align="right">22</td>
+<td align="right">1.092124e+02</td>
+<td align="right">4.9642009</td>
+<td align="right">2.7516560</td>
+<td align="right">0.0000197</td>
+</tr>
+<tr class="even">
+<td align="left">Tri.Diffs:Sex</td>
+<td align="right">1</td>
+<td align="right">3.132803e-01</td>
+<td align="right">0.3132803</td>
+<td align="right">0.1736512</td>
+<td align="right">0.6768997</td>
+</tr>
+<tr class="odd">
+<td align="left">AU_Name:Sex</td>
+<td align="right">11</td>
+<td align="right">5.214722e+01</td>
+<td align="right">4.7406559</td>
+<td align="right">2.6277450</td>
+<td align="right">0.0023824</td>
+</tr>
+<tr class="even">
+<td align="left">Race:Sex</td>
+<td align="right">2</td>
+<td align="right">2.651919e+01</td>
+<td align="right">13.2595960</td>
+<td align="right">7.3497924</td>
+<td align="right">0.0006477</td>
+</tr>
+<tr class="odd">
+<td align="left">Tri.Diffs:AU_Name:Race</td>
+<td align="right">20</td>
+<td align="right">5.478810e+01</td>
+<td align="right">2.7394049</td>
+<td align="right">1.5184518</td>
+<td align="right">0.0644905</td>
+</tr>
+<tr class="even">
+<td align="left">Tri.Diffs:AU_Name:Sex</td>
+<td align="right">10</td>
+<td align="right">1.115842e+01</td>
+<td align="right">1.1158424</td>
+<td align="right">0.6185113</td>
+<td align="right">0.7994097</td>
+</tr>
+<tr class="odd">
+<td align="left">Tri.Diffs:Race:Sex</td>
+<td align="right">2</td>
+<td align="right">5.932693e+00</td>
+<td align="right">2.9663463</td>
+<td align="right">1.6442454</td>
+<td align="right">0.1932322</td>
+</tr>
+<tr class="even">
+<td align="left">AU_Name:Race:Sex</td>
+<td align="right">22</td>
+<td align="right">1.559652e+02</td>
+<td align="right">7.0893254</td>
+<td align="right">3.9296122</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Tri.Diffs:AU_Name:Race:Sex</td>
+<td align="right">20</td>
+<td align="right">5.463697e+01</td>
+<td align="right">2.7318487</td>
+<td align="right">1.5142634</td>
+<td align="right">0.0657642</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">7062</td>
+<td align="right">1.274040e+04</td>
+<td align="right">1.8040776</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="anova-tab.6" class="section level1">
 <h1><span class="header-section-number">4</span> ANOVA (Tab.6 )</h1>
@@ -967,6 +1253,149 @@ kable(AIC(m1,m2))</code></pre>
 <td align="right">7056</td>
 <td align="right">12758.19241</td>
 <td align="right">1.808134</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata)))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">MSE</td>
+<td align="right">1</td>
+<td align="right">4.736388e+03</td>
+<td align="right">4736.3879475</td>
+<td align="right">2620.3425082</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">AU_Name</td>
+<td align="right">11</td>
+<td align="right">8.523976e+03</td>
+<td align="right">774.9068976</td>
+<td align="right">428.7067500</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Race</td>
+<td align="right">2</td>
+<td align="right">5.997513e+02</td>
+<td align="right">299.8756275</td>
+<td align="right">165.9021310</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Sex</td>
+<td align="right">1</td>
+<td align="right">3.300257e-01</td>
+<td align="right">0.3300257</td>
+<td align="right">0.1825822</td>
+<td align="right">0.6691765</td>
+</tr>
+<tr class="odd">
+<td align="left">MSE:AU_Name</td>
+<td align="right">11</td>
+<td align="right">2.162635e+03</td>
+<td align="right">196.6032101</td>
+<td align="right">108.7680643</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">MSE:Race</td>
+<td align="right">2</td>
+<td align="right">1.331603e+02</td>
+<td align="right">66.5801372</td>
+<td align="right">36.8345595</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">AU_Name:Race</td>
+<td align="right">22</td>
+<td align="right">1.098384e+03</td>
+<td align="right">49.9265635</td>
+<td align="right">27.6211953</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">MSE:Sex</td>
+<td align="right">1</td>
+<td align="right">1.379690e+02</td>
+<td align="right">137.9690345</td>
+<td align="right">76.3295004</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">AU_Name:Sex</td>
+<td align="right">11</td>
+<td align="right">1.264741e+02</td>
+<td align="right">11.4976458</td>
+<td align="right">6.3609169</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Race:Sex</td>
+<td align="right">2</td>
+<td align="right">2.662114e+02</td>
+<td align="right">133.1057120</td>
+<td align="right">73.6389331</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">MSE:AU_Name:Race</td>
+<td align="right">22</td>
+<td align="right">5.476811e+02</td>
+<td align="right">24.8945964</td>
+<td align="right">13.7725984</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">MSE:AU_Name:Sex</td>
+<td align="right">11</td>
+<td align="right">1.361104e+02</td>
+<td align="right">12.3736730</td>
+<td align="right">6.8455670</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">MSE:Race:Sex</td>
+<td align="right">2</td>
+<td align="right">2.538023e+01</td>
+<td align="right">12.6901141</td>
+<td align="right">7.0206338</td>
+<td align="right">0.0008995</td>
+</tr>
+<tr class="even">
+<td align="left">AU_Name:Race:Sex</td>
+<td align="right">22</td>
+<td align="right">1.233556e+02</td>
+<td align="right">5.6070706</td>
+<td align="right">3.1020359</td>
+<td align="right">0.0000014</td>
+</tr>
+<tr class="odd">
+<td align="left">MSE:AU_Name:Race:Sex</td>
+<td align="right">22</td>
+<td align="right">2.325258e+02</td>
+<td align="right">10.5693524</td>
+<td align="right">5.8473511</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">7056</td>
+<td align="right">1.275404e+04</td>
+<td align="right">1.8075454</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 </tr>

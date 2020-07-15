@@ -180,6 +180,9 @@ kable(AIC(m1,m2))
 
 
 kable(anova(lm(Difference~RMS * AU_Name*Race*Sex,data=mydata)))
+kable(anova(lm(Difference~Hausdorff * AU_Name*Race*Sex,data=mydata)))
+kable(anova(lm(Difference~Tri.Diffs * AU_Name*Race*Sex,data=mydata)))
+
 
 ```
 
@@ -192,6 +195,7 @@ kable(anova(lm(Difference~RMS * AU_Name*Race*Sex,data=mydata)))
 
 kable(anova(lm(Difference~SSIM* AU_Name*Race*Sex,data=mydata)))
 
+kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata)))
 ```
 
 
