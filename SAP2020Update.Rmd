@@ -364,6 +364,14 @@ mRMS <- glm(Difference~RMS*AU_Name,data=mydata,family=poisson(link="identity"))
 mSTED <- glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="sqrt"))
 kable(AIC(mHausdorff,mRMS, mSTED ))
 
+
+mSTED
+summary(mSTED)
+
+
+
+
+
 ```
 
 

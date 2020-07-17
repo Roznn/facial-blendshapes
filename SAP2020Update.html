@@ -1726,6 +1726,86 @@ kable(AIC(mHausdorff,mRMS, mSTED ))</code></pre>
 </tr>
 </tbody>
 </table>
+<pre class="r"><code>mSTED</code></pre>
+<pre><code>## 
+## Call:  glm(formula = Difference ~ STED * AU_Name, family = poisson(link = &quot;sqrt&quot;), 
+##     data = mydata)
+## 
+## Coefficients:
+##                   (Intercept)                           STED  
+##                       0.41280                        4.81961  
+##          AU_NameCheeks_Puffed             AU_NameEyebrows_up  
+##                       0.16708                        0.17767  
+##            AU_NameEyes_Closed             AU_NameEyes_Opened  
+##                       1.11562                       -0.08896  
+##                  AU_NameFrown            AU_NameLips_Protude  
+##                       0.17597                        0.16788  
+##            AU_NameMouth_Frown              AU_NameMouth_Open  
+##                       0.09647                        1.43748  
+##                AU_NameNeutral        AU_NameNostrils_Dilated  
+##                       0.77953                        0.56210  
+##      AU_NameSmile_Lips_Closed      STED:AU_NameCheeks_Puffed  
+##                       0.24651                       -1.08758  
+##       STED:AU_NameEyebrows_up        STED:AU_NameEyes_Closed  
+##                       0.47392                       -1.12175  
+##       STED:AU_NameEyes_Opened              STED:AU_NameFrown  
+##                      11.52626                        0.88959  
+##      STED:AU_NameLips_Protude        STED:AU_NameMouth_Frown  
+##                      -1.12133                        1.16828  
+##        STED:AU_NameMouth_Open            STED:AU_NameNeutral  
+##                      -2.56746                             NA  
+##  STED:AU_NameNostrils_Dilated  STED:AU_NameSmile_Lips_Closed  
+##                       0.12797                       -0.29552  
+## 
+## Degrees of Freedom: 7199 Total (i.e. Null);  7177 Residual
+## Null Deviance:       9388 
+## Residual Deviance: 3844  AIC: 24680</code></pre>
+<pre class="r"><code>summary(mSTED)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = Difference ~ STED * AU_Name, family = poisson(link = &quot;sqrt&quot;), 
+##     data = mydata)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.6159  -0.5145  -0.1925   0.4210   3.5328  
+## 
+## Coefficients: (1 not defined because of singularities)
+##                               Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)                    0.41280    0.07993   5.164 2.41e-07 ***
+## STED                           4.81961    0.27580  17.475  &lt; 2e-16 ***
+## AU_NameCheeks_Puffed           0.16708    0.11192   1.493  0.13549    
+## AU_NameEyebrows_up             0.17767    0.11234   1.582  0.11376    
+## AU_NameEyes_Closed             1.11562    0.11236   9.929  &lt; 2e-16 ***
+## AU_NameEyes_Opened            -0.08896    0.11907  -0.747  0.45501    
+## AU_NameFrown                   0.17597    0.11565   1.522  0.12813    
+## AU_NameLips_Protude            0.16788    0.11152   1.505  0.13223    
+## AU_NameMouth_Frown             0.09647    0.11298   0.854  0.39319    
+## AU_NameMouth_Open              1.43748    0.11241  12.788  &lt; 2e-16 ***
+## AU_NameNeutral                 0.77953    0.08250   9.449  &lt; 2e-16 ***
+## AU_NameNostrils_Dilated        0.56210    0.11316   4.967 6.79e-07 ***
+## AU_NameSmile_Lips_Closed       0.24651    0.11364   2.169  0.03007 *  
+## STED:AU_NameCheeks_Puffed     -1.08758    0.38351  -2.836  0.00457 ** 
+## STED:AU_NameEyebrows_up        0.47392    0.42171   1.124  0.26110    
+## STED:AU_NameEyes_Closed       -1.12175    0.46929  -2.390  0.01683 *  
+## STED:AU_NameEyes_Opened       11.52626    1.02765  11.216  &lt; 2e-16 ***
+## STED:AU_NameFrown              0.88959    0.59145   1.504  0.13256    
+## STED:AU_NameLips_Protude      -1.12133    0.35185  -3.187  0.00144 ** 
+## STED:AU_NameMouth_Frown        1.16828    0.51414   2.272  0.02307 *  
+## STED:AU_NameMouth_Open        -2.56746    0.40199  -6.387 1.69e-10 ***
+## STED:AU_NameNeutral                 NA         NA      NA       NA    
+## STED:AU_NameNostrils_Dilated   0.12797    1.11668   0.115  0.90877    
+## STED:AU_NameSmile_Lips_Closed -0.29552    0.37981  -0.778  0.43653    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 9388.2  on 7199  degrees of freedom
+## Residual deviance: 3844.0  on 7177  degrees of freedom
+## AIC: 24680
+## 
+## Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div>
 <div id="fitting" class="section level2">
