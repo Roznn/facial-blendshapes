@@ -1,7 +1,7 @@
 ---
-title: "R Code UPdate for MIG submission"
+title: "R Code for MIG 2020 paper  "
 author: "Rozenn Dahyot"
-date: " August 2020 "
+date: "2020"
 output: 
    html_document: 
       number_sections: true
@@ -17,18 +17,29 @@ render = 'normal_print'
 
 
 
-This Rmd file provides the code used for several results presented as part of the paper:
+This file provides some of the code used to generate several results presented in the paper:
 
-*Investigating perceptually-based models to predict importance of facial blendshapes*
+```
+Investigating perceptually-based models to predict importance of facial blendshapes
+
+by E. Carrigan, K. Zibrek, R. Dahyot and R. McDonnell published in ACM MIG 2020.
+
+```
+with Github repo https://github.com/Roznn/facial-blendshapes 
+
+
+Results for some models reported in the paper (e.g. AICs, Deviance) have been run in the R Console directly and are not in the Example Rmd code but can easily be inferred from the example code given. Please read the paper for more information on the meaning of the variables and meaning of results shown. 
+
+**Please cite the paper when using data and/or code.**       
 
 
 # Data Exploration
 
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+library(knitr)
 require(xlsx)
- # Sys.getenv()
-#Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_251') 
 
 mydata =read.xlsx("combined_resultsUpdate.xlsx", sheetName = "combined")
 
@@ -37,267 +48,29 @@ str(mydata)
 ```
 
 
-
-
-
-# Model comparison with AIC (Tab. 4)
-
-The response variable modelled is the perceived difference (a number from 1 to 9) by participants.
-
-## Geometric Error Metrics
-
-### RMS 
-
-
-AIC using the Poisson distribution with identity link function: 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-library(knitr)
-
-
-m1 <- glm(Difference~RMS*AU_Name,data=mydata,family=poisson(link="identity"))
-m2 <- glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
-m3 <- glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-
-
-kable(AIC(m1,m2,m3))
-
-```
-
-
-AIC using the Gaussian distribution with identity lnk function: 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
+Six  virtual characters are used (3 females Asian-Black-White, 3 males Asian-Black-White) in this study (see variables Sex and Race in the data).    
 
 
 
 
-m1 <- glm(Difference~RMS*AU_Name,data=mydata,family=gaussian(link="identity"))
-m2 <- glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=gaussian(link="identity"))
-m3 <- glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
-
-
-kable(AIC(m1,m2,m3))
-
-```
-
-
-### Hausdorff and TriangleDifference
-
-
-With Poisson distribution and identity link: 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-m1 <- glm(Difference~Hausdorff*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-m2 <- glm(Difference~Tri.Diffs*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-
-kable(AIC(m1,m2))
-
-```
-
-With Gaussian distribution and identity link: 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-m1 <- glm(Difference~Hausdorff*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
-m2 <- glm(Difference~Tri.Diffs*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
-
-kable(AIC(m1,m2))
-
-```
-
-
-## Image Error Metrics
+# ANOVA tables  (MIG2020 paper: Tab. 4-7)
 
 
 
 
-### SSIM
+## Using Geometric metrics
 
 
-With Gaussian distribution and identity link: 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-m1 <- glm(Difference~SSIM*AU_Name,data=mydata,family=gaussian(link="identity"))
-m2 <- glm(Difference~SSIM*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
-
-kable(AIC(m1,m2))
-
-```
-
-
-With Poisson distribution and identity / log link: 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-m1 <- glm(Difference~SSIM*AU_Name,data=mydata,family=poisson(link="identity"))
-m2 <- glm(Difference~SSIM*AU_Name*Race*Sex,data=mydata,family=poisson(link="log"))
-
-kable(AIC(m1,m2))
-
-```
-
-### MSE
-
+### RMS
 
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-m1 <- glm(Difference~MSE * AU_Name,data=mydata,family=gaussian(link="identity"))
-m2 <- glm(Difference~MSE * AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-
-kable(AIC(m1,m2))
-
-```
-
-
-
-### Activation
-
-
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-m1 <- glm(Difference~Activation * AU_Name,data=mydata,family=gaussian(link="identity"))
-m2 <- glm(Difference~Activation * AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-
-kable(AIC(m1,m2))
-
-```
-
-
-# ANOVA (Tab.5 )
-
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
 
 kable(anova(lm(Difference~RMS * AU_Name*Race*Sex,data=mydata)))
-kable(anova(lm(Difference~Hausdorff * AU_Name*Race*Sex,data=mydata)))
-kable(anova(lm(Difference~Tri.Diffs * AU_Name*Race*Sex,data=mydata)))
-
 
 ```
 
-
-# ANOVA (Tab.6 )
-
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-
-kable(anova(lm(Difference~SSIM* AU_Name*Race*Sex,data=mydata)))
-
-kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata)))
-
-##knitr::kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata),test="F"),"latex")
-```
-
-
-# Figure (Fig. 8)
-
-
-## RMS (Fig. 8 (a))
-
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-require(ggplot2)
-
-
-m<-glm(Difference~RMS*relevel(factor(AU_Name),ref='Neutral')+Race:Sex,data=mydata,family=poisson(link="identity"))
-
-ggplot(mydata,aes(RMS, Difference, group=interaction(AU_Name,Race,Sex), col=interaction(AU_Name),linetype=interaction(AU_Name)))+
-   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
-   #  geom_point(alpha = 0.8,show.legend=TRUE) +
-   ylab("Perceptual Difference") + 
-   xlab("RMS") +
-   theme_bw()+ 
-   theme(text = element_text(size = 16))+
-   labs(col="Blendshapes",linetype="Blendshapes")
-
-
-```
-
-
-
-## RMS (Fig. 8 (b))
-
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-
-m<-glm(Difference~RMS*relevel(factor(AU_Name),ref='Neutral'),data=mydata,family=poisson(link="identity"))
-
-ggplot(mydata,aes(RMS, Difference, group=interaction(AU_Name), col=interaction(AU_Name),linetype=interaction(AU_Name)))+
-   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
-   #  geom_point(alpha = 0.8,show.legend=TRUE) +
-   ylab("Perceptual Difference") + 
-   xlab("RMS") +
-   theme_bw()+ 
-   theme(text = element_text(size = 16))+
-   labs(col="Blendshapes",linetype="Blendshapes")
-
-
-```
-
-
-## SSIM (Fig. 8 (c))
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-
-
-
-m<- glm(Difference~SSIM*relevel(factor(AU_Name),ref='Neutral')*Sex*Race,data=mydata,family=poisson(link="log"))
-ggplot(mydata,aes(SSIM, Difference, group=interaction(AU_Name,Race,Sex), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
-   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
-   #  geom_point(alpha = 0.8,show.legend=TRUE) +
-   ylab("Perceptual Difference") + 
-   xlab("SSIM") +
-   theme_bw()+ 
-   theme(text = element_text(size = 16))+
-   labs(col="Blendshapes",linetype="Blendshapes")
-
-
-```
-
-
-
-
-## SSIM (Fig. 8 (d))
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-
-
-m<- glm(Difference~SSIM*relevel(factor(AU_Name),ref='Neutral'),data=mydata,family=poisson(link="identity"))
-ggplot(mydata,aes(SSIM, Difference, group=interaction(AU_Name), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
-   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
-   #  geom_point(alpha = 0.8,show.legend=TRUE) +
-   ylab("Perceptual Difference") + 
-   xlab("SSIM") +
-   theme_bw()+ 
-   theme(text = element_text(size = 16))+
-   labs(col="Blendshapes",linetype="Blendshapes")
-
-
-
-```
-
-
-
-# New results: STED
-
-
-## ANOVA
-
-STED  explains more than SSIM:
+### STED
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
@@ -307,73 +80,28 @@ kable(anova(lm(Difference~STED * AU_Name*Race*Sex,data=mydata)))
 ```
 
 
+## Using Image metrics
 
-## Model selection with AIC
-
-With Gaussian distribution and identity link: 
+### SSIM
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
 
-m1 <- glm(Difference~STED*AU_Name,data=mydata,family=gaussian(link="identity"))
-m2 <- glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
-m3 <- (glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="identity")))
-m4 <- (glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity")))
- m5 <-glm(Difference~STED*AU_Name+Race,data=mydata,family=poisson(link="identity"))
- m6 <- glm(Difference~STED*AU_Name+Race*Sex,data=mydata,family=poisson(link="sqrt"))
-kable(AIC(m1,m2,m3,m4,m5,m6))
+kable(anova(lm(Difference~SSIM* AU_Name*Race*Sex,data=mydata)))
+
+
+
 
 ```
 
-##  AIC comparison RMS, Hausdorff and STED
-
-
-
-- choosing the best between link functions: identity, log, sqrt
-- choosing between distributions: gaussian, poisson
-
-### using all variables 
-
-
+###  MSE
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
-mHausdorff<- glm(Difference~Hausdorff*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-mRMS <- glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-mSTED <- glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=poisson(link="sqrt"))
-kable(AIC(mHausdorff,mRMS, mSTED ))
-
-```
-
-### AU_Name + Sex and Race variables 
 
 
 
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-mHausdorff<- glm(Difference~Hausdorff*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
-mRMS <- glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
-mSTED <- glm(Difference~STED*AU_Name+Race:Sex,data=mydata,family=poisson(link="sqrt"))
-kable(AIC(mHausdorff,mRMS, mSTED ))
-
-```
-### AU_Name without Sex and Race variables
-
- 
-
-```{r message=FALSE, warning=FALSE,echo=TRUE}
-
-mHausdorff<- glm(Difference~Hausdorff*AU_Name,data=mydata,family=poisson(link="identity"))
-mRMS <- glm(Difference~RMS*AU_Name,data=mydata,family=poisson(link="identity"))
-mSTED <- glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="sqrt"))
-kable(AIC(mHausdorff,mRMS, mSTED ))
-
-
-mSTED
-summary(mSTED)
-
-
-
+kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata)))
 
 
 ```
@@ -382,14 +110,293 @@ summary(mSTED)
 
 
 
-## Fitting 
 
 
-### Similar to Fig 8(a): STED*AU+Race:Sex  (best AIC)
+# AIC and Deviance (MIG2020 paper: Tab. 3)
+
+
+## STED 
+
+### STED
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~STED,data=mydata,family=gaussian(link="identity"))
+mp <- glm(Difference~STED,data=mydata,family=poisson(link="identity"))
+
+kable(AIC(mg,mp))
+
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### STED*AU
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~STED*AU_Name,data=mydata,family=gaussian(link="sqrt"))
+mp <- glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="sqrt"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### STED*AU + Race : Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~STED*AU_Name+Race:Sex,data=mydata,family=poisson(link="sqrt"))
+mg <- glm(Difference~STED*AU_Name+Race:Sex,data=mydata,family=gaussian(link="sqrt"))
 
 
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+### STED* AU * Race * Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=poisson(link="sqrt"))
+mg <- glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=gaussian(link="sqrt"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+
+
+
+## RMS 
+
+### RMS
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~RMS,data=mydata,family=gaussian(link="identity"))
+mp <- glm(Difference~RMS,data=mydata,family=poisson(link="identity"))
+
+kable(AIC(mg,mp))
+
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### RMS*AU
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~RMS*AU_Name,data=mydata,family=gaussian(link="identity"))
+mp <- glm(Difference~RMS*AU_Name,data=mydata,family=poisson(link="identity"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### RMS*AU + Race : Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
+mg <- glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=gaussian(link="identity"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+### RMS* AU * Race * Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
+mg <- glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+
+
+
+## SSIM
+### SSIM
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~SSIM,data=mydata,family=gaussian(link="identity"))
+mp <- glm(Difference~SSIM,data=mydata,family=poisson(link="identity"))
+
+kable(AIC(mg,mp))
+
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### SSIM*AU
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~SSIM*AU_Name,data=mydata,family=gaussian(link="identity"))
+mp <- glm(Difference~SSIM*AU_Name,data=mydata,family=poisson(link="identity"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### SSIM*AU + Race : Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~SSIM*AU_Name+Race:Sex,data=mydata,family=poisson(link="log"))
+mg <- glm(Difference~SSIM*AU_Name+Race:Sex,data=mydata,family=gaussian(link="sqrt"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+### SSIM* AU * Race * Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~SSIM*AU_Name*Race*Sex,data=mydata,family=poisson(link="log"))
+mg <- glm(Difference~SSIM*AU_Name*Race*Sex,data=mydata,family=gaussian(link="sqrt"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+
+
+
+
+## MSE
+
+### MSE
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~MSE,data=mydata,family=gaussian(link="identity"))
+mp <- glm(Difference~MSE,data=mydata,family=poisson(link="identity"))
+
+kable(AIC(mg,mp))
+
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### MSE*AU
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+mg <- glm(Difference~MSE*AU_Name,data=mydata,family=gaussian(link="log"))
+mp <- glm(Difference~MSE*AU_Name,data=mydata,family=poisson(link="log"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+### MSE*AU + Race : Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~MSE*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
+mg <- glm(Difference~MSE*AU_Name+Race:Sex,data=mydata,family=gaussian(link="identity"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+```
+
+
+### MSE* AU * Race * Sex
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+mp <- glm(Difference~MSE*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
+mg <- glm(Difference~MSE*AU_Name*Race*Sex,data=mydata,family=gaussian(link="identity"))
+
+kable(AIC(mg,mp))
+deviance(mp)
+qchisq(0.95, length(mydata$Difference)-length(mp$coefficient)) 
+
+
+```
+
+
+
+# Figures  (MIG2020 paper: Fig. 3)
+
+
+##  RMS*AU+Race:Sex
+
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+require(ggplot2)
+
+
+m<-glm(Difference~RMS*relevel(factor(AU_Name),ref='Neutral')+Race:Sex,data=mydata,family=poisson(link="identity"))
+
+ggplot(mydata,aes(RMS, Difference, group=interaction(AU_Name,Race,Sex), col=interaction(AU_Name),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   ylab("Perceptual Difference") + 
+   xlab("RMS") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
+
+
+```
+
+
+##  RMS*AU
+
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+m<-glm(Difference~RMS*relevel(factor(AU_Name),ref='Neutral'),data=mydata,family=poisson(link="identity"))
+
+ggplot(mydata,aes(RMS, Difference, group=interaction(AU_Name), col=interaction(AU_Name),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   ylab("Perceptual Difference") + 
+   xlab("RMS") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
+
+
+```
+
+
+
+##  STED*AU+Race:Sex  
+
+
+
+```{r message=FALSE, warning=FALSE,echo=TRUE}
 require(ggplot2)
 
 
@@ -409,7 +416,7 @@ ggplot(mydata,aes(STED, Difference, group=interaction(AU_Name,Race,Sex), col=int
 
 
 
-### similar to Fig 8(b):  STED*AU
+##  STED*AU
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
@@ -430,183 +437,83 @@ ggplot(mydata,aes(STED, Difference, group=interaction(AU_Name), col=interaction(
 
 
 
-
-# MIG submission
-
-We compare:
-
-- Geometric metric RMS (standard) and STED (perceptual)
-
-- image metrics MSE (standard) and SSIM (perceptual) 
-
-
-
+##  MSE* AU* Sex* Race
 
 
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
-mRMS0<-glm(Difference~RMS,data=mydata,family=poisson(link="identity"))
-mRMS1<-glm(Difference~RMS*AU_Name,data=mydata,family=poisson(link="identity"))
-mRMS2<-glm(Difference~RMS*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
-mRMS3<-glm(Difference~RMS*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
 
-mSTED0<-glm(Difference~STED,data=mydata,family=poisson(link="identity"))
-mSTED1<-glm(Difference~STED*AU_Name,data=mydata,family=poisson(link="sqrt"))
-mSTED2<-glm(Difference~STED*AU_Name+Race:Sex,data=mydata,family=poisson(link="sqrt"))
-mSTED3<-glm(Difference~STED*AU_Name*Race*Sex,data=mydata,family=poisson(link="sqrt"))
+m<- glm(Difference~MSE*relevel(factor(AU_Name),ref='Neutral')*Sex*Race,data=mydata,family=poisson(link="log"))
+ggplot(mydata,aes(MSE, Difference, group=interaction(AU_Name,Race,Sex), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   ylab("Perceptual Difference") + 
+   xlab("MSE") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
 
-
-mMSE0<-glm(Difference~MSE,data=mydata,family=poisson(link="identity"))
-mMSE1<-glm(Difference~MSE*AU_Name,data=mydata,family=poisson(link="log"))
-mMSE2<-glm(Difference~MSE*AU_Name+Race:Sex,data=mydata,family=poisson(link="identity"))
-mMSE3<-glm(Difference~MSE*AU_Name*Race*Sex,data=mydata,family=poisson(link="identity"))
-
-mSSIM0<-glm(Difference~SSIM,data=mydata,family=poisson(link="identity"))
-mSSIM1<-glm(Difference~SSIM*AU_Name,data=mydata,family=poisson(link="identity"))
-mSSIM2<-glm(Difference~SSIM*AU_Name+Race:Sex,data=mydata,family=gaussian(link="sqrt"))
-mSSIM2b<-glm(Difference~SSIM*AU_Name+Race:Sex,data=mydata,family=poisson(link="log"))
-mSSIM3<-glm(Difference~SSIM*AU_Name*Race*Sex,data=mydata,family=poisson(link="log"))
 
 ```
 
 
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-#kable(AIC(mRMS0,mRMS1,mRMS2,mSTED0,mSTED1,mSTED2,mMSE0,mMSE1,mMSE2,mSSIM0,mSSIM1,mSSIM2))
-kable(AIC(mRMS0,mRMS1,mRMS2))
-kable(AIC(mSTED0,mSTED1,mSTED2))
-kable(AIC(mMSE0,mMSE1,mMSE2))
-kable(AIC(mSSIM0,mSSIM1,mSSIM2))
+## MSE*AU
 
-## Log likelihood for models '1'
-logLik(mRMS1)
-logLik(mSTED1)
-logLik(mMSE1)
-logLik(mSSIM1)
+```{r message=FALSE, warning=FALSE,echo=TRUE}
+
+
+m<- glm(Difference~MSE*relevel(factor(AU_Name),ref='Neutral'),data=mydata,family=poisson(link="identity"))
+ggplot(mydata,aes(MSE, Difference, group=interaction(AU_Name), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   ylab("Perceptual Difference") + 
+   xlab("MSE") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
+
 
 ```
+
+
+
+
+
+
+## SSIM* AU * Sex* Race
 
 
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
-deviance(mRMS0)
-qchisq(0.95, length(mydata$Difference)-length(mRMS0$coefficient)) 
 
-deviance(mRMS1)
-qchisq(0.95, length(mydata$Difference)-length(mRMS1$coefficient)) 
+m<- glm(Difference~SSIM*relevel(factor(AU_Name),ref='Neutral')*Sex*Race,data=mydata,family=poisson(link="log"))
+ggplot(mydata,aes(SSIM, Difference, group=interaction(AU_Name,Race,Sex), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   ylab("Perceptual Difference") + 
+   xlab("SSIM") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
 
-deviance(mRMS2)
-qchisq(0.95, length(mydata$Difference)-length(mRMS2$coefficient))
-
-deviance(mRMS3)
-qchisq(0.95, length(mydata$Difference)-length(mRMS3$coefficient))
-
-
-
-##
-deviance(mSTED0)
-qchisq(0.95, length(mydata$Difference)-length(mSTED0$coefficient)) 
-
-deviance(mSTED1)
-qchisq(0.95, length(mydata$Difference)-length(mSTED1$coefficient)) 
-
-deviance(mSTED2)
-qchisq(0.95, length(mydata$Difference)-length(mSTED2$coefficient))
-
-deviance(mSTED3)
-qchisq(0.95, length(mydata$Difference)-length(mSTED3$coefficient))
-
-
-## 
-deviance(mMSE0)
-qchisq(0.95, length(mydata$Difference)-length(mMSE0$coefficient)) 
-
-deviance(mMSE1)
-qchisq(0.95, length(mydata$Difference)-length(mMSE1$coefficient)) 
-
-deviance(mMSE2)
-qchisq(0.95, length(mydata$Difference)-length(mMSE2$coefficient))
-
-deviance(mMSE3)
-qchisq(0.95, length(mydata$Difference)-length(mMSE3$coefficient))
-
-##
-deviance(mSSIM0)
-qchisq(0.95, length(mydata$Difference)-length(mSSIM0$coefficient)) 
-
-deviance(mSSIM1)
-qchisq(0.95, length(mydata$Difference)-length(mSSIM1$coefficient)) 
-
-deviance(mSSIM2)
-qchisq(0.95, length(mydata$Difference)-length(mSSIM2$coefficient))
-
-deviance(mSSIM2b)
-qchisq(0.95, length(mydata$Difference)-length(mSSIM2b$coefficient))
-
-deviance(mSSIM3)
-qchisq(0.95, length(mydata$Difference)-length(mSSIM3$coefficient))
-
-```
-
-```{r message=FALSE, warning=FALSE,echo=FALSE}
-# pchisq(mRMS0$deviance, mRMS0$df.residual, lower.tail=F)
-# pchisq(mRMS1$deviance, mRMS1$df.residual, lower.tail=F)
-# pchisq(mRMS2$deviance, mRMS2$df.residual, lower.tail=F)
-# 
-# pchisq(mSTED0$deviance, mSTED0$df.residual, lower.tail=F)
-# pchisq(mSTED1$deviance, mSTED1$df.residual, lower.tail=F)
-# pchisq(mSTED2$deviance, mSTED2$df.residual, lower.tail=F)
 
 ```
 
 
-Are shown above the best choice (AIC) for three link functions tested (identity/log/sqrt) and two
-distributions tested (gaussian/poisson).
-The perceived difference is fitted with the following combination of explanatory variable
+## SSIM*AU
 
-- models noted with '0' fit only the metrics hence the number of parameters df is 2 for equation of the form $a+b \times metric$ (two parameters: intercept $a$ and trend $b$). The AICs for model '0' are not as good as for models '1' and '2'. We note however that the deviance is just about fitting in the 95\% confidence interval (the model '0' is borderline a good model).  
-
-- models noted with '1' fit  metrics*AU_Name increasing the number of parameters (df). We note AIC is better than for model '0'. More interestingly the deviance is much better than for model '0', validating this model as a good model.     
-
-- models noted with '2' fit   metrics*AU_Name+Race:Sex that are more fine tuned to the  gender/race of the characters. This corresponds to having a specific model for each character in the test (i.e. since there is no two character black-woman ).  Even if these models '2' improve (marginally) the AIC compared to models '1' (and are good models as indicated by their deviances), it is best to ignore models '2' and focus on models '1' that are more generic (i.e. not character specific) for this study.   
+```{r message=FALSE, warning=FALSE,echo=TRUE}
 
 
-## Were any of them good at predicting the perceptual results?
+m<- glm(Difference~SSIM*relevel(factor(AU_Name),ref='Neutral'),data=mydata,family=poisson(link="identity"))
+ggplot(mydata,aes(SSIM, Difference, group=interaction(AU_Name), col=interaction(Blendshapes),linetype=interaction(AU_Name)))+
+   geom_line(aes(y=m$fitted.values, colour=AU_Name, linetype=AU_Name),size=1) +
+   ylab("Perceptual Difference") + 
+   xlab("SSIM") +
+   theme_bw()+ 
+   theme(text = element_text(size = 16))+
+   labs(col="Blendshapes",linetype="Blendshapes")
 
 
-All models '1' are very good for predicting perceptual difference as per their significative deviance (ignoring models '2' as indicated). So all metrics provide good models for prediction of the perceptual difference. 
+```
 
-
-## Were geometry or image metrics better?
-
-**Geometry metrics are better** than image metrics as per AIC (smaller is better).
-we note the following AIC ordering:
-
-$$
-AIC: \quad mSTED1\ (24680)<= mRMS1\ (24688)< mSSIM1\ (25591) < mMSE1\ (26115)
-$$
-
-We also note that less parameters are used for geometry metrics (df=23) than for image metrics (df=24).
- STED:AU_NameNeutral and RMS:AU_NameNeutral are not used in mSTED1 and mRMS1 respectively.
- Since AIC penalises the number of parameters in combination with the log Likelihood, this explains partly lower AIC observed for RMS and STED. Below isolating the log likelihood showing again that geometry is better than image metrics, and perceptual metrics provide  better fit in both categories (geometry and image).  
- 
-$$
- - log Lik: \quad mSTED1\ (12317.06)< mRMS1\ (12321.44) < mSSIM1\ (12771.77) < mMSE1\ (13033.9 )
-$$
- 
-
-
-## Were standard or perceptual metrics better?
-
-**Perceptual better than standard** as AIC (and -log lik) is lower in both cases geometry (STED) and image (SSIM).
-
-
-## Do we have evidence to suggest that a face-specific metric is required or are these metrics sufficient?
- 
- 
- **There is not  enough variability of characters in the test to assess if a face specific model is a good idea** . Here we manage to have a slightly better models '2' that is character specific as specified by gender and race (ie there is only one black-woman character in the test so the race:gender combo make it character specific). Because model '1' is very good and model '2' only improve marginally AIC, I would say we may not need a face specific metric   
- 
- 
-We have some contradictory information about AIC and Sum Sq for RMS and STED. STED is better than RMS as it has lower AIC but we note that RMS has higher Sum Sq, so were wondering what to conclude from that?
 
