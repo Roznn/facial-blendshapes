@@ -32,7 +32,6 @@ series = {MIG '20}
 
 ```
 
-A copy of the preprint can be found in the folder [PDF](PDF/). 
 
 
 
