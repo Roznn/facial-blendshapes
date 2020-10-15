@@ -1,7 +1,7 @@
 # MIG2020: Perceptually-based models to predict importance of facial AUs
 
 
-This package contains  Data and R/Rmd code ([MIG2020.Rmd](MIG2020.Rmd) with output [MIG2020.html](MIG2020.html)) associated with the following publication:
+This package contains  Data ([combined_results.xlsx](combined_results.xlsx)) and R/Rmd code ([MIG2020.Rmd](MIG2020.Rmd) with output [MIG2020.html](MIG2020.html)) associated with the following publication:
 
 ```
 Perceptually-based models to predict importance of facial AUs
