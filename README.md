@@ -1,21 +1,23 @@
-# MIG2020: Perceptually-based models to predict importance of facial AUs
+# MIG2020: Investigating perceptually based models to predict importance of facial blendshapes
 
 
-This package contains  Data ([combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)) and R/Rmd code ([MIG2020.Rmd](MIG2020.Rmd) with output [MIG2020.html](MIG2020.html)) associated with the following publication:
+This package contains  Data ([combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)) and R/Rmd code ([MIG2020.Rmd](MIG2020.Rmd) 
+with output [MIG2020.html](MIG2020.html)) associated with the following publication:
 
 ```
-Perceptually-based models to predict importance of facial AUs
+Investigating perceptually based models to predict importance of facial blendshapes
 E. Carrigan, K. Zibrek, R. Dahyot and R. McDonnell, 
-ACM SIGGRAPH conference Motion in Game (MIG2020), USA 2020
+ACM SIGGRAPH conference Motion in Game (MIG2020), USA 2020 (Best Short Paper Award)
 ```
 
-Please cite this conference paper when using this code and data.
+Please cite this conference paper [PDF](MIG2020.pdf) when using this code and data.
+
 Using bibtex format:
 
 ```
 @inproceedings{doiUpcoming,
 author = {E. Carrigan, K. Zibrek, R. Dahyot and R. McDonnell},
-title = {Perceptually-based models to predict importance of facial AUs},
+title = {Investigating perceptually based models to predict importance of facial blendshapes},
 year = {2020},
 isbn = {},
 publisher = {Association for Computing Machinery},
