@@ -10,7 +10,7 @@ E. Carrigan, K. Zibrek, R. Dahyot and R. McDonnell,
 ACM SIGGRAPH conference Motion in Game (MIG2020), USA 2020 (Best Short Paper Award)
 ```
 
-Please cite this conference paper [PDF](MIG2020.pdf) when using this code and data.
+Please cite this [MIG2020](https://computing.clemson.edu/vcl/mig2020/) conference paper (see [PDF](MIG2020.pdf)) when using this code and data.
 
 Using bibtex format:
 
