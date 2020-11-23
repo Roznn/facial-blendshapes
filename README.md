@@ -26,7 +26,16 @@ publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 url = {https://doi.org/10.1145/3424636.3426904},
 doi = {10.1145/3424636.3426904},
-abstract = {Blendshape facial rigs are used extensively in the industry for facial animation of virtual humans. However, storing and manipulating large numbers of facial meshes is costly in terms of memory and computation for gaming applications, yet the relative perceptual importance of blendshapes has not yet been investigated. Research in Psychology and Neuroscience has shown that our brains process faces differently than other objects, so we postulate that the perception of facial expressions will be feature-dependent rather than based purely on the amount of movement required to make the expression. In this paper, we explore the noticeability of blendshapes under different activation levels, and present new perceptually based models to predict perceptual importance of blendshapes. The models predict visibility based on commonly-used geometry and image-based metrics. },
+abstract = {Blendshape facial rigs are used extensively in the industry for facial animation of 
+virtual humans. However, storing and manipulating large numbers of facial meshes is costly
+in terms of memory and computation for gaming applications, yet the relative perceptual 
+importance of blendshapes has not yet been investigated. Research in Psychology and Neuroscience
+has shown that our brains process faces differently than other objects, so we postulate that 
+the perception of facial expressions will be feature-dependent rather than based purely on the 
+amount of movement required to make the expression. In this paper, we explore the noticeability
+of blendshapes under different activation levels, and present new perceptually based models to
+predict perceptual importance of blendshapes. The models predict visibility based on commonly-used 
+geometry and image-based metrics. },
 booktitle = {Motion, Interaction and Games},
 articleno = {2},
 numpages = {6},
