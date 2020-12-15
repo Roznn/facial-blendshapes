@@ -51,4 +51,4 @@ series = {MIG '20}
 
 ## Author: 
 
-[Rozenn Dahyot](https://roznn.github.io/)
+[Rozenn Dahyot](https://twitter.com/RDahyot)
