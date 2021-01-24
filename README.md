@@ -8,13 +8,13 @@ This package contains:
 
 These files are associated with the following publication:
 
-```
-Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
+
+>Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
 Investigating perceptually based models to predict importance of facial blendshapes. 
 In Motion, Interaction and Games (MIG '20). Association for Computing Machinery, 
 New York, NY, USA, Article 2, 1–6. 
 DOI:https://doi.org/10.1145/3424636.3426904
-```
+
 
 Please cite this conference paper (see [PDF](MIG2020.pdf)) when using this code and data. This paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/). 
 
