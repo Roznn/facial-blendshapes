@@ -1,13 +1,4 @@
-# Predicting perception of facial action unit activation 
-
-
-
-
-
-
-
-## MIG2020: Investigating perceptually based models to predict importance of facial blendshapes
-
+# Facial Blendshapes 
 
 This package contains:
 - Data [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)
@@ -16,7 +7,7 @@ This package contains:
 - paper  [PDF](MIG2020.pdf)
 
 
-These files are associated with the following publication:
+These files are associated with the following publications:
 
 
 >Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
