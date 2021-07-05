@@ -6,7 +6,7 @@ This package contains:
     - upcoming (Experiment 2: online)
 - R/Rmd code [MIG2020.Rmd](MIG2020.Rmd)  with output [MIG2020.html](MIG2020.html)
 - Additional R/Rmd code for C&G2021  (upcoming)
-- publications:  [MIG2020.pdf](MIG2020.pdf)  (this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) and [CnG2021.pdf](CnG2021.pdf)
+- publications:  [MIG2020.pdf](MIG2020.pdf)  (this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) and CnG2021.pdf (upcoming)
 
 
 These files are associated with the following publications:
