@@ -14,8 +14,9 @@ Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020.
 In Motion, Interaction and Games (MIG '20). Association for Computing Machinery, 
 New York, NY, USA, Article 2, 1–6. [DOI:10.1145/3424636.3426904](https://doi.org/10.1145/3424636.3426904)
 
+
 > Model for predicting perception of facial action unit activation using virtual humans
-Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, To appear Computer &  Graphics
+Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, accepted Computer &  Graphics 2021
 
 
 Please cite these papers when using this code and data. 
