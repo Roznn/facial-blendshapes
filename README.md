@@ -4,19 +4,21 @@ This package contains:
 - Data [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)
 - and R/Rmd code [MIG2020.Rmd](MIG2020.Rmd) 
 - with output [MIG2020.html](MIG2020.html)
-- papers  [MIG2020.pdf](MIG2020.pdf) and 
+- publications:  [MIG2020.pdf](MIG2020.pdf)  (this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) and [CnG2021.pdf](CnG2021.pdf)
 
 
 These files are associated with the following publications:
 
-
->Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
-Investigating perceptually based models to predict importance of facial blendshapes. 
+> Investigating perceptually based models to predict importance of facial blendshapes. 
+Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
 In Motion, Interaction and Games (MIG '20). Association for Computing Machinery, 
 New York, NY, USA, Article 2, 1–6. [DOI:10.1145/3424636.3426904](https://doi.org/10.1145/3424636.3426904)
 
+> Model for predicting perception of facial action unit activation using virtual humans
+Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, To appear Computer &  Graphics
 
-Please cite this conference paper (see [PDF](MIG2020.pdf)) when using this code and data. This paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/). 
+
+Please cite these papers when using this code and data. 
 
 Using bibtex format:
 
