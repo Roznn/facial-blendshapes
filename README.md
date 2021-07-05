@@ -1,4 +1,12 @@
-# MIG2020: Investigating perceptually based models to predict importance of facial blendshapes
+# Predicting perception of facial action unit activation 
+
+
+
+
+
+
+
+## MIG2020: Investigating perceptually based models to predict importance of facial blendshapes
 
 
 This package contains:
