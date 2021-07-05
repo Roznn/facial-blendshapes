@@ -4,7 +4,7 @@ This package contains:
 - Data [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)
 - and R/Rmd code [MIG2020.Rmd](MIG2020.Rmd) 
 - with output [MIG2020.html](MIG2020.html)
-- paper  [PDF](MIG2020.pdf)
+- papers  [MIG2020.pdf](MIG2020.pdf) and 
 
 
 These files are associated with the following publications:
