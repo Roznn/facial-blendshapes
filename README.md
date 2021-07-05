@@ -1,9 +1,11 @@
 # Facial Blendshapes 
 
 This package contains:
-- Data [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)
-- and R/Rmd code [MIG2020.Rmd](MIG2020.Rmd) 
-- with output [MIG2020.html](MIG2020.html)
+- Data
+    - [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)  (Experiment 1: Laboratory)
+    - upcoming (Experiment 2: online)
+- R/Rmd code [MIG2020.Rmd](MIG2020.Rmd)  with output [MIG2020.html](MIG2020.html)
+- Additional R/Rmd code for C&G2021  (upcoming)
 - publications:  [MIG2020.pdf](MIG2020.pdf)  (this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) and [CnG2021.pdf](CnG2021.pdf)
 
 
