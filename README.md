@@ -63,4 +63,4 @@ series = {MIG '20}
 ## Author and Repo webpage 
 
 - [Repo Webpage](https://roznn.github.io/facial-blendshapes/)
-- [Rozenn Dahyot](https://roznn.github.io/) and Katja Zibrek
+- [Rozenn Dahyot](https://roznn.github.io/) and [Katja Zibrek](https://cathrin7.github.io/)
