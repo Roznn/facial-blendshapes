@@ -3,10 +3,15 @@
 This package contains:
 - Data
     - [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)  (Experiment 1: Laboratory)
-    - upcoming (Experiment 2: online)
-- R/Rmd code [MIG2020.Rmd](MIG2020.Rmd)  with output [MIG2020.html](MIG2020.html)
-- Additional R/Rmd code for C&G2021  (upcoming)
-- publications:  [MIG2020.pdf](MIG2020.pdf)  (this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) and CnG2021.pdf (upcoming)
+    - [Main_analysis.csv](Main_analysis.csv) (Experiment 2: online)
+- Experiment 1 R/Rmd code 
+	- [MIG2020.Rmd](MIG2020.Rmd)  with output [MIG2020.html](MIG2020.html) 
+	- [CAG2021.Rmd](CAG2021.Rmd)  with output [CAG2021.html](CAG2021.html)
+- Experiment 2 R/Rmd code 
+    - [PerceptualExperiment2_example.R](PerceptualExperiment2_example.R)
+- publications:  
+	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
+	-  CnG2021.pdf (upcoming)
 
 
 These files are associated with the following publications:
@@ -58,4 +63,4 @@ series = {MIG '20}
 ## Author and Repo webpage 
 
 - [Repo Webpage](https://roznn.github.io/facial-blendshapes/)
-- [Rozenn Dahyot](https://roznn.github.io/)
+- [Rozenn Dahyot](https://roznn.github.io/) and Katja Zibrek
