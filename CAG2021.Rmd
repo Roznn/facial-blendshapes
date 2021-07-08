@@ -1,5 +1,5 @@
 ---
-title: "CAG2021 paper extension to MIG2020"
+title: "R code for CAG 2021 paper"
 author: "Rozenn Dahyot"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -423,8 +423,6 @@ kable(anova(lm(Difference~SSIM* AU_Name*Race*Sex,data=mydata)))
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
 
-
-
 kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata)))
 
 
@@ -439,8 +437,6 @@ kable(anova(lm(Difference~MSE* AU_Name*Race*Sex,data=mydata)))
 
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
-require(ggplot2)
-
 
 m<-glm(Difference~RMS*relevel(factor(AU_Name),ref='Neutral')+Race:Sex,data=mydata,family=poisson(link="identity"))
 
@@ -481,7 +477,7 @@ ggplot(mydata,aes(RMS, Difference, group=interaction(AU_Name), col=interaction(A
 
 
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
-require(ggplot2)
+
 
 
 m<-glm(Difference~STED*relevel(factor(AU_Name),ref='Neutral')+Race:Sex,data=mydata,family=poisson(link="sqrt"))

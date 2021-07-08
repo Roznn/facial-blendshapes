@@ -11,25 +11,41 @@ This package contains:
     - [PerceptualExperiment2_example.R](PerceptualExperiment2_example.R)
 - publications:  
 	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
-	-  CnG2021.pdf (upcoming)
+	-  [CAG2021.pdf](CAG2021.pdf) preprint accepted t Computers and Graphics 2021.
 
 
 These files are associated with the following publications:
 
-> Investigating perceptually based models to predict importance of facial blendshapes. 
+> [MIG2020] Investigating perceptually based models to predict importance of facial blendshapes. 
 Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
 In Motion, Interaction and Games (MIG '20). Association for Computing Machinery, 
 New York, NY, USA, Article 2, 1–6. [DOI:10.1145/3424636.3426904](https://doi.org/10.1145/3424636.3426904)
 
 and
 
-> Model for predicting perception of facial action unit activation using virtual humans
-Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, accepted Computer &  Graphics 2021
+> [CAG2021] Model for predicting perception of facial action unit activation using virtual humans
+Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, accepted Computers &  Graphics 2021
 
 
 Please cite these papers when using this code and data. 
+The code is in R and Rmd formats and it can be run with [RStudio](https://www.rstudio.com/) (code has been tested on Windows 10 on RStudio Version 1.3.1093)
+
+
 
 Using bibtex format:
+
+
+```
+@article{CAG2021,
+title =  {Model for predicting perception of facial action unit activation using virtual humans},
+author={Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot},
+journal = {Computers \& Graphics},
+url={},
+doi={},
+year={accepted 2021},
+}
+
+```
 
 ```
 @inproceedings{10.1145/3424636.3426904,
