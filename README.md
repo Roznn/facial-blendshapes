@@ -11,7 +11,7 @@ This package contains:
     - [PerceptualExperiment2_example.R](PerceptualExperiment2_example.R)
 - publications:  
 	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
-	-  [CAG2021.pdf](CAG2021.pdf) preprint accepted t Computers and Graphics 2021.
+	-  [CAG2021.pdf](CAG2021.pdf) preprint accepted at Computers and Graphics 2021.
 
 
 These files are associated with the following publications:
