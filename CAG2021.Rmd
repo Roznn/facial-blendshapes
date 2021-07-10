@@ -9,9 +9,6 @@ output:
    
 
 
-
-
-
 ```{r message=FALSE, warning=FALSE,echo=TRUE}
 
 library(knitr)
