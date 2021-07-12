@@ -5,7 +5,7 @@
 
 Please cite these papers when using this code and data: 
 
-> [MIG2020] Investigating perceptually based models to predict importance of facial blendshapes. 
+> [MIG2020.pdf](MIG2020.pdf) Investigating perceptually based models to predict importance of facial blendshapes. 
 Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
 In Motion, Interaction and Games (MIG '20). Association for Computing Machinery, 
 New York, NY, USA, Article 2, 1–6. [DOI:10.1145/3424636.3426904](https://doi.org/10.1145/3424636.3426904)
@@ -16,7 +16,42 @@ and
 Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, accepted Computers &  Graphics 2021
 
 
-Using bibtex format:
+## Files
+
+
+The code is in R and Rmd formats and it can be run with [RStudio](https://www.rstudio.com/) (code has been tested on Windows 10 on RStudio Version 1.3.1093)
+This package contains:
+- Data
+    - [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)  (Experiment 1: Laboratory, used in [MIG2020.pdf](MIG2020.pdf) and [CAG2021.pdf](CAG2021.pdf))
+    - [Main_analysis.csv](Main_analysis.csv) (Experiment 2: online, used in [CAG2021.pdf](CAG2021.pdf))
+- Experiment 1 R/Rmd code 
+	- [MIG2020.Rmd](MIG2020.Rmd)  with output [MIG2020.html](MIG2020.html) 
+	- [CAG2021.Rmd](CAG2021.Rmd)  with output [CAG2021.html](CAG2021.html)
+- Experiment 2 R code 
+    - [PerceptualExperiment2_example.R](PerceptualExperiment2_example.R)
+- publications:  
+	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
+	-  [CAG2021.pdf](CAG2021.pdf) preprint accepted at Computers and Graphics 2021.
+
+###  Running the R file
+
+For the  file `*.R`, to run the code used the R console to run 
+
+```
+source('~/GitHub/facial-blendshapes/PerceptualExperiment2_example.R')
+```
+<img src="source.png" width="300" >
+
+### Running the Rmd file
+
+To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (see image). 
+
+<img src="knit.png" width="300" >
+
+
+
+
+## Citing with  bibtex 
 
 
 ```
@@ -61,37 +96,6 @@ series = {MIG '20}
 ```
 
 
-## Files
-
-
-The code is in R and Rmd formats and it can be run with [RStudio](https://www.rstudio.com/) (code has been tested on Windows 10 on RStudio Version 1.3.1093)
-This package contains:
-- Data
-    - [combined_resultsUpdate.xlsx](combined_resultsUpdate.xlsx)  (Experiment 1: Laboratory, used in [MIG2020.pdf](MIG2020.pdf) and [CAG2021.pdf](CAG2021.pdf))
-    - [Main_analysis.csv](Main_analysis.csv) (Experiment 2: online, used in [CAG2021.pdf](CAG2021.pdf))
-- Experiment 1 R/Rmd code 
-	- [MIG2020.Rmd](MIG2020.Rmd)  with output [MIG2020.html](MIG2020.html) 
-	- [CAG2021.Rmd](CAG2021.Rmd)  with output [CAG2021.html](CAG2021.html)
-- Experiment 2 R code 
-    - [PerceptualExperiment2_example.R](PerceptualExperiment2_example.R)
-- publications:  
-	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
-	-  [CAG2021.pdf](CAG2021.pdf) preprint accepted at Computers and Graphics 2021.
-
-###  Running the R file
-
-For the  file `*.R`, to run the code used the R console to run 
-
-```
-source('~/GitHub/facial-blendshapes/PerceptualExperiment2_example.R')
-```
-<img src="source.png" width="300" >
-
-### Running the Rmd file
-
-To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (see image). 
-
-<img src="knit.png" width="300" >
 
 ## Author and Repo webpage 
 
