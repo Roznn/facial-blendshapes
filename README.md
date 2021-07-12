@@ -85,7 +85,13 @@ For the  file `*.R`, to run the code used the R console to run
 ```
 source('~/GitHub/facial-blendshapes/PerceptualExperiment2_example.R')
 ```
+![](source.png)
 
+### Running the Rmd file
+
+To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (see image). 
+
+![](knit.png)
 
 ## Author and Repo webpage 
 
