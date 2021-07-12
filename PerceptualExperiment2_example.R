@@ -1,3 +1,5 @@
+# author: Katja Zibrek
+
 library('afex')
 library('ARTool')
 library('effectsize')
