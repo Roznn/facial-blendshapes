@@ -33,7 +33,7 @@ This package contains:
 	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
 	- [CAG2021.pdf](CAG2021.pdf) preprint accepted at Computers and Graphics 2021.
 
-All packages need to be installed in R/RStudio to run the code e.g. in the R console run for installing package `xlsx`).
+All packages need to be installed in R/RStudio to run the code e.g. in the R console run for installing package `xlsx` :
 
 ```
 install.packages("xlsx")
