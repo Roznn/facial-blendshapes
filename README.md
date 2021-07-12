@@ -48,8 +48,14 @@ To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (s
 
 <img src="knit.png" width="300" >
 
-If an issue occurs when *knitting* at the stage of reading the data (package `xlsx ` )
+If a problem occurs when *knitting* at the stage when reading the data (package `xlsx`), a possible fix is to do the following: 
 
+- Install recent java https://www.java.com/en/download/win10.jsp 
+-  in R console, set variable `JAVA_HOME` with the path to you newly install Java folder e.g. (note: replace `jre1.8.0_291` with the one you have installed)
+```
+Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_291') 
+``` 
+Then try to knit again the Rmd file. 
 
 ## Citing with  bibtex 
 
