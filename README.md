@@ -33,7 +33,14 @@ This package contains:
 	- [MIG2020.pdf](MIG2020.pdf)  this paper was awarded *Best Short Paper*  at [MIG2020](https://computing.clemson.edu/vcl/mig2020/)) 
 	- [CAG2021.pdf](CAG2021.pdf) preprint accepted at Computers and Graphics 2021.
 
+All packages need to be installed in R/RStudio to run the code e.g. in the R console run for installing package `xlsx`).
+
+```
+install.packages("xlsx")
+```
+
 ###  Running the R file
+
 
 For the  file `*.R`, to run the code used the R console to run 
 
@@ -44,7 +51,7 @@ source('~/GitHub/facial-blendshapes/PerceptualExperiment2_example.R')
 
 ### Running the Rmd file
 
-To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (see image). 
+To compile the `*.Rmd` code with RStudio,  press  the button "knit"  (see image). 
 
 <img src="knit.png" width="400" >
 
