@@ -112,5 +112,5 @@ series = {MIG '20}
 
 ## Author and Repo webpage 
 
-- [Project Webpage](https://roznn.github.io/facial-blendshapes/)
+- Project Webpage: [https://roznn.github.io/facial-blendshapes/](https://roznn.github.io/facial-blendshapes/)
 - Authors: [Rozenn Dahyot](https://roznn.github.io/) and [Katja Zibrek](https://cathrin7.github.io/)
