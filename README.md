@@ -5,14 +5,14 @@
 
 Please cite these papers when using this code and data: 
 
-> [[MIG2020.pdf](MIG2020.pdf)] Investigating perceptually based models to predict importance of facial blendshapes. 
+> [[MIG2020.pdf](MIG2020.pdf)] **Investigating perceptually based models to predict importance of facial blendshapes.** 
 Emma Carrigan, Katja Zibrek, Rozenn Dahyot, and Rachel McDonnell. 2020. 
 In Motion, Interaction and Games (MIG '20). Association for Computing Machinery, 
 New York, NY, USA, Article 2, 1–6. [DOI:10.1145/3424636.3426904](https://doi.org/10.1145/3424636.3426904)
 
 and
 
-> [[CAG2021.pdf](CAG2021.pdf)] Model for predicting perception of facial action unit activation using virtual humans
+> [[CAG2021.pdf](CAG2021.pdf)] **Model for predicting perception of facial action unit activation using virtual humans**
 Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, accepted Computers &  Graphics 2021
 
 
@@ -48,7 +48,7 @@ To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (s
 
 <img src="knit.png" width="300" >
 
-
+If an issue occurs when *knitting* at the stage of reading the data (package `xlsx ` )
 
 
 ## Citing with  bibtex 
