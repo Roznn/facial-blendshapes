@@ -85,7 +85,7 @@ For the  file `*.R`, to run the code used the R console to run
 ```
 source('~/GitHub/facial-blendshapes/PerceptualExperiment2_example.R')
 ```
-![](source.png)
+![](source.png | width=200)
 
 ### Running the Rmd file
 
