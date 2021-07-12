@@ -40,18 +40,20 @@ For the  file `*.R`, to run the code used the R console to run
 ```
 source('~/GitHub/facial-blendshapes/PerceptualExperiment2_example.R')
 ```
-<img src="source.png" width="300" >
+<img src="source.png" width="400" >
 
 ### Running the Rmd file
 
 To compile the Rmd code with RStudio,  press  the button "knit" above the Rmd (see image). 
 
-<img src="knit.png" width="300" >
+<img src="knit.png" width="400" >
 
 If a problem occurs when *knitting* at the stage when reading the data (package `xlsx`), a possible fix is to do the following: 
 
-- Install recent java https://www.java.com/en/download/win10.jsp 
+- Install recent java [https://www.java.com/en/download/win10.jsp](https://www.java.com/en/download/win10.jsp)
+
 -  in R console, set variable `JAVA_HOME` with the path to you newly install Java folder e.g. (note: replace `jre1.8.0_291` with the one you have installed)
+
 ```
 Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_291') 
 ``` 
@@ -101,9 +103,7 @@ series = {MIG '20}
 }
 ```
 
-
-
 ## Author and Repo webpage 
 
-- [Repo Webpage](https://roznn.github.io/facial-blendshapes/)
-- [Rozenn Dahyot](https://roznn.github.io/) and [Katja Zibrek](https://cathrin7.github.io/)
+- [Project Webpage](https://roznn.github.io/facial-blendshapes/)
+- Authors: [Rozenn Dahyot](https://roznn.github.io/) and [Katja Zibrek](https://cathrin7.github.io/)
