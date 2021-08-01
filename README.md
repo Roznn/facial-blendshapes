@@ -66,6 +66,8 @@ Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_291')
 ``` 
 Then try to knit again the Rmd file. 
 
+This repo was given the [http://www.replicabilitystamp.org/#https-github-com-roznn-facial-blendshapes](replicability stamp).
+
 ## Citing with  bibtex 
 
 
