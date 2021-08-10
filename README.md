@@ -13,7 +13,7 @@ New York, NY, USA, Article 2, 1–6. [DOI:10.1145/3424636.3426904](https://doi.o
 and
 
 > [[CAG2021.pdf](CAG2021.pdf)] **Model for predicting perception of facial action unit activation using virtual humans**
-Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot, accepted Computers &  Graphics 2021
+Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot,  Computers &  Graphics 2021 [DOI:10.1016/j.cag.2021.07.022](https://doi.org/10.1016/j.cag.2021.07.022)
 
 
 ## Files
@@ -76,9 +76,24 @@ This repo was given the [replicability stamp](http://www.replicabilitystamp.org/
 title =  {Model for predicting perception of facial action unit activation using virtual humans},
 author={Rachel McDonnell, Katja Zibrek, Emma Carrigan and Rozenn Dahyot},
 journal = {Computers \& Graphics},
-url={},
-doi={},
-year={accepted 2021},
+ url= {https://roznn.github.io/facial-blendshapes/CAG2021.pdf},
+ note= {Github: https://github.com/Roznn/facial-blendshapes}, 
+ issn= {0097-8493},
+doi={10.1016/j.cag.2021.07.022},
+year={2021},
+abstract= {Blendshape facial rigs are used extensively in the industry for facial animation of
+virtual humans. However, storing and manipulating large numbers of facial meshes
+(blendshapes) is costly in terms of memory and computation for gaming applications.
+Blendshape rigs are comprised of sets of semantically-meaningful expressions, which
+govern how expressive the character will be, often based on Action Units from the Facial
+Action Coding System (FACS). However, the relative perceptual importance of blendshapes has not yet been investigated. Research in Psychology and Neuroscience has
+shown that our brains process faces differently than other objects so we postulate that
+the perception of facial expressions will be feature-dependent rather than based purely
+on the amount of movement required to make the expression. Therefore, we believe that
+perception of blendshape visibility will not be reliably predicted by numerical calculations of the difference between the expression and the neutral mesh. In this paper, we
+explore the noticeability of blendshapes under different activation levels, and present
+new perceptually-based models to predict perceptual importance of blendshapes. The
+models predict visibility based on commonly-used geometry and image-based metrics.}
 }
 
 ```
